@@ -44,6 +44,5 @@ with open(sys.argv[2], 'a+', encoding='utf-8') as csv_file:
         csv_file.write(line+'\n')
     csv_file.close()
 
-with open(sys.argv[2], 'rw', encoding='utf-8') as csv_file:
     
 
