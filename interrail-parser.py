@@ -1,4 +1,4 @@
-from pyquery import PyQuery as pq 
+from pyquery import PyQuery as pq
 from lxml import etree
 import urllib
 import sys
@@ -33,7 +33,7 @@ def parse_item(item, day):
 filename = sys.argv[1]
 input = open(filename, "r").read()
 d = pq(input, parser='html_fragments')
-day = datetime.strptime(d("div.item-departure-date").text(), '%A, %d.%m.%Y').date()
+day = datetime.strptime(d("div.item-departure-date").eq(0).text(), '%A, %d.%m.%Y').date()
 results = list(d("li.item_result>div.result"))
 
 
@@ -43,6 +43,3 @@ with open(sys.argv[2], 'a+', encoding='utf-8') as csv_file:
     for line in parsed_results:
         csv_file.write(line+'\n')
     csv_file.close()
-
-    
-
